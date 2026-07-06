@@ -14,12 +14,7 @@
   }
   body { font-family: 'Lato', sans-serif; background: var(--cream); overflow-x: hidden; min-height: 100vh; }
 
-  /* ── SCREENS ── */
-  .screen {
-    display: none; min-height: 100vh;
-    flex-direction: column; align-items: center; justify-content: center;
-    padding: 40px 20px;
-  }
+  .screen { display: none; min-height: 100vh; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
   .screen.active { display: flex; }
 
   /* ── TULIPS INTRO ── */
@@ -27,245 +22,97 @@
     position: fixed; inset: 0;
     background: linear-gradient(160deg, #1a0a2e 0%, #2d0a1f 60%, #0d1b2a 100%);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    z-index: 100; cursor: pointer;
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 100; cursor: pointer; transition: opacity 0.8s ease, transform 0.8s ease;
   }
   #screen-tulips.hidden { opacity: 0; pointer-events: none; transform: scale(1.06); }
   #tulip-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
   .intro-text { position: relative; text-align: center; z-index: 2; animation: floatIn 1.5s ease forwards; }
   .intro-text .emoji-big { font-size: 3rem; display: block; margin-bottom: 12px; }
-  .intro-text h1 {
-    font-family: 'Playfair Display', serif; font-style: italic; color: #fff;
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    text-shadow: 0 0 40px rgba(244,114,182,0.8); line-height: 1.3;
-  }
-  .intro-text p {
-    color: rgba(255,255,255,0.7); margin-top: 18px; font-size: 0.95rem;
-    letter-spacing: 2px; animation: blink 2s infinite;
-  }
+  .intro-text h1 { font-family: 'Playfair Display', serif; font-style: italic; color: #fff; font-size: clamp(1.8rem,5vw,3rem); text-shadow: 0 0 40px rgba(244,114,182,0.8); line-height: 1.3; }
+  .intro-text p { color: rgba(255,255,255,0.7); margin-top: 18px; font-size: 0.95rem; letter-spacing: 2px; animation: blink 2s infinite; }
 
   /* ── GREETING ── */
-  #screen-greeting {
-    background: linear-gradient(160deg, #fff0f6, #fce7f3 50%, #f3e8ff);
-    position: relative; overflow: hidden; text-align: center;
-  }
+  #screen-greeting { background: linear-gradient(160deg, #fff0f6, #fce7f3 50%, #f3e8ff); position: relative; overflow: hidden; text-align: center; }
   .hearts-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-  .floating-heart {
-    position: absolute; animation: floatHeart linear infinite; opacity: 0;
-  }
-  .greeting-card {
-    background: rgba(255,255,255,0.87); backdrop-filter: blur(20px);
-    border-radius: 28px; padding: 50px 40px; max-width: 600px; width: 100%;
-    box-shadow: 0 20px 60px rgba(190,24,93,0.15);
-    border: 1px solid rgba(244,114,182,0.3); position: relative; z-index: 2;
-    animation: cardIn 0.8s ease forwards;
-  }
+  .floating-heart { position: absolute; animation: floatHeart linear infinite; opacity: 0; }
+  .greeting-card { background: rgba(255,255,255,0.87); backdrop-filter: blur(20px); border-radius: 28px; padding: 50px 40px; max-width: 600px; width: 100%; box-shadow: 0 20px 60px rgba(190,24,93,0.15); border: 1px solid rgba(244,114,182,0.3); position: relative; z-index: 2; animation: cardIn 0.8s ease forwards; }
   .greeting-card .big-emoji { font-size: 4rem; display: block; margin-bottom: 20px; }
-  .greeting-card h2 {
-    font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,4vw,2.4rem);
-    color: var(--deep); line-height: 1.3; margin-bottom: 16px;
-  }
+  .greeting-card h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem,4vw,2.4rem); color: var(--deep); line-height: 1.3; margin-bottom: 16px; }
   .greeting-card p { color: #6b4060; font-size: 1.05rem; line-height: 1.8; margin-bottom: 28px; }
-  .highlight {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--pink), var(--lilac));
-    color: white; padding: 4px 12px; border-radius: 20px; font-weight: 700;
-  }
+  .highlight { display: inline-block; background: linear-gradient(135deg, var(--pink), var(--lilac)); color: white; padding: 4px 12px; border-radius: 20px; font-weight: 700; }
 
   /* ── CHOICE SCREENS ── */
-  #screen-place  { background: linear-gradient(160deg, #fff0f6, #fce7f3 60%, #ede9fe); }
-  #screen-hora   { background: linear-gradient(160deg, #fef9c3, #fef3c7 60%, #fff0f6); }
-  #screen-food   { background: linear-gradient(160deg, #fff7ed, #fef3c7 60%, #fce7f3); }
-  #screen-dessert{ background: linear-gradient(160deg, #fef3c7, #fce7f3 60%, #fff0f6); }
+  #screen-place   { background: linear-gradient(160deg, #fff0f6, #fce7f3 60%, #ede9fe); }
+  #screen-hora    { background: linear-gradient(160deg, #fef9c3, #fef3c7 60%, #fff0f6); }
+  #screen-food    { background: linear-gradient(160deg, #fff7ed, #fef3c7 60%, #fce7f3); }
+  #screen-dessert { background: linear-gradient(160deg, #fef3c7, #fce7f3 60%, #fff0f6); }
   #screen-activity{ background: linear-gradient(160deg, #ede9fe, #f3e8ff 60%, #fce7f3); }
-  #screen-reto   { background: linear-gradient(160deg, #ecfdf5, #d1fae5 60%, #fce7f3); }
+  #screen-reto    { background: linear-gradient(160deg, #ecfdf5, #d1fae5 60%, #fce7f3); }
 
   .step-indicator { display: flex; gap: 8px; margin-bottom: 32px; }
-  .step-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: rgba(190,24,93,0.18); transition: all 0.4s;
-  }
+  .step-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(190,24,93,0.18); transition: all 0.4s; }
   .step-dot.active { background: var(--deep); transform: scale(1.5); }
   .step-dot.done   { background: var(--pink); }
 
   .choice-header { text-align: center; margin-bottom: 34px; }
-  .step-label {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--pink), var(--lilac));
-    color: white; font-size: 0.74rem; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 5px 16px; border-radius: 20px; margin-bottom: 14px;
-  }
-  .choice-header h2 {
-    font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,4vw,2.2rem);
-    color: var(--deep); line-height: 1.3;
-  }
+  .step-label { display: inline-block; background: linear-gradient(135deg, var(--pink), var(--lilac)); color: white; font-size: 0.74rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 14px; }
+  .choice-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,4vw,2.2rem); color: var(--deep); line-height: 1.3; }
   .choice-header p { color: #7c3a5d; margin-top: 8px; font-size: 0.94rem; }
 
-  .cards-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-    gap: 18px; max-width: 700px; width: 100%;
-  }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 18px; max-width: 700px; width: 100%; }
 
-  .choice-card {
-    background: rgba(255,255,255,0.9); border-radius: 22px; padding: 28px 18px;
-    text-align: center; cursor: pointer;
-    border: 2px solid rgba(244,114,182,0.18);
-    transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    box-shadow: 0 8px 24px rgba(190,24,93,0.07);
-    position: relative; overflow: hidden;
-  }
-  .choice-card::before {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, var(--pink), var(--lilac));
-    opacity: 0; transition: opacity 0.35s;
-  }
+  .choice-card { background: rgba(255,255,255,0.9); border-radius: 22px; padding: 28px 18px; text-align: center; cursor: pointer; border: 2px solid rgba(244,114,182,0.18); transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 8px 24px rgba(190,24,93,0.07); position: relative; overflow: hidden; }
+  .choice-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--pink), var(--lilac)); opacity: 0; transition: opacity 0.35s; }
   .choice-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 20px 50px rgba(190,24,93,0.18); }
   .choice-card.selected { border-color: var(--deep); transform: translateY(-8px) scale(1.05); }
   .choice-card.selected::before { opacity: 1; }
-  .choice-card .card-emoji {
-    font-size: 2.7rem; display: block; margin-bottom: 11px;
-    position: relative; z-index: 1; transition: transform 0.3s;
-  }
+  .choice-card .card-emoji { font-size: 2.7rem; display: block; margin-bottom: 11px; position: relative; z-index: 1; transition: transform 0.3s; }
   .choice-card:hover .card-emoji { transform: scale(1.2) rotate(-5deg); }
-  .choice-card h3 {
-    font-family: 'Playfair Display', serif; font-size: 1.08rem;
-    color: var(--deep); position: relative; z-index: 1; transition: color 0.3s;
-  }
-  .choice-card p {
-    font-size: 0.78rem; color: #9c5a7a; margin-top: 5px;
-    position: relative; z-index: 1; transition: color 0.3s;
-  }
+  .choice-card h3 { font-family: 'Playfair Display', serif; font-size: 1.08rem; color: var(--deep); position: relative; z-index: 1; transition: color 0.3s; }
+  .choice-card p { font-size: 0.78rem; color: #9c5a7a; margin-top: 5px; position: relative; z-index: 1; transition: color 0.3s; }
   .choice-card.selected h3, .choice-card.selected p { color: white; }
-  .check-badge {
-    position: absolute; top: 10px; right: 10px;
-    width: 24px; height: 24px; background: white; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; font-weight: bold; color: var(--deep);
-    opacity: 0; transform: scale(0);
-    transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1); z-index: 2;
-  }
+  .check-badge { position: absolute; top: 10px; right: 10px; width: 24px; height: 24px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: var(--deep); opacity: 0; transform: scale(0); transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1); z-index: 2; }
   .choice-card.selected .check-badge { opacity: 1; transform: scale(1); }
 
   /* ── BUTTONS ── */
-  .btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--rose), var(--deep));
-    color: white; border: none; padding: 16px 44px; border-radius: 50px;
-    font-size: 1.05rem; font-family: 'Playfair Display', serif; font-style: italic;
-    cursor: pointer; box-shadow: 0 8px 30px rgba(190,24,93,0.35);
-    transition: all 0.3s;
-  }
+  .btn-primary { display: inline-block; background: linear-gradient(135deg, var(--rose), var(--deep)); color: white; border: none; padding: 16px 44px; border-radius: 50px; font-size: 1.05rem; font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer; box-shadow: 0 8px 30px rgba(190,24,93,0.35); transition: all 0.3s; }
   .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(190,24,93,0.45); }
 
-  .btn-next {
-    margin-top: 34px;
-    background: linear-gradient(135deg, var(--rose), var(--deep));
-    color: white; border: none; padding: 14px 40px; border-radius: 50px;
-    font-size: 0.98rem; font-family: 'Playfair Display', serif; font-style: italic;
-    cursor: pointer; box-shadow: 0 8px 30px rgba(190,24,93,0.28);
-    transition: all 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px);
-  }
+  .btn-next { margin-top: 34px; background: linear-gradient(135deg, var(--rose), var(--deep)); color: white; border: none; padding: 14px 40px; border-radius: 50px; font-size: 0.98rem; font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer; box-shadow: 0 8px 30px rgba(190,24,93,0.28); transition: all 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); }
   .btn-next.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
   .btn-next:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(190,24,93,0.4); }
 
   /* ── PROMESAS ── */
-  #screen-promesas {
-    background: linear-gradient(160deg, #fdf4ff, #fce7f3 60%, #ede9fe);
-    text-align: center;
-  }
-  .promesas-card {
-    background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);
-    border-radius: 28px; padding: 44px 36px; max-width: 560px; width: 100%;
-    box-shadow: 0 20px 60px rgba(190,24,93,0.12);
-    border: 1px solid rgba(244,114,182,0.22); animation: cardIn 0.8s ease forwards;
-  }
+  #screen-promesas { background: linear-gradient(160deg, #fdf4ff, #fce7f3 60%, #ede9fe); text-align: center; }
+  .promesas-card { background: rgba(255,255,255,0.9); backdrop-filter: blur(20px); border-radius: 28px; padding: 44px 36px; max-width: 560px; width: 100%; box-shadow: 0 20px 60px rgba(190,24,93,0.12); border: 1px solid rgba(244,114,182,0.22); animation: cardIn 0.8s ease forwards; }
   .promesas-card .prom-icon { font-size: 3rem; display: block; margin-bottom: 16px; }
-  .promesas-card h2 {
-    font-family: 'Playfair Display', serif; font-style: italic;
-    color: var(--deep); font-size: clamp(1.4rem,4vw,2rem); margin-bottom: 6px;
-  }
+  .promesas-card h2 { font-family: 'Playfair Display', serif; font-style: italic; color: var(--deep); font-size: clamp(1.4rem,4vw,2rem); margin-bottom: 6px; }
   .promesas-card .sub { color: #9c5a7a; font-size: 0.88rem; margin-bottom: 26px; }
-  .promise-item {
-    display: flex; align-items: center; gap: 14px;
-    background: rgba(244,114,182,0.05); border-radius: 14px;
-    padding: 13px 16px; margin-bottom: 10px; cursor: pointer;
-    border: 2px solid transparent; transition: all 0.3s; text-align: left;
-  }
+  .promise-item { display: flex; align-items: center; gap: 14px; background: rgba(244,114,182,0.05); border-radius: 14px; padding: 13px 16px; margin-bottom: 10px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s; text-align: left; }
   .promise-item:hover { background: rgba(244,114,182,0.09); border-color: rgba(244,114,182,0.25); }
-  .promise-item.checked {
-    background: linear-gradient(135deg, rgba(244,114,182,0.12), rgba(192,132,252,0.12));
-    border-color: var(--pink);
-  }
-  .promise-box {
-    width: 24px; height: 24px; border-radius: 7px;
-    border: 2px solid rgba(244,114,182,0.35);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem; flex-shrink: 0; transition: all 0.3s; background: white;
-  }
+  .promise-item.checked { background: linear-gradient(135deg, rgba(244,114,182,0.12), rgba(192,132,252,0.12)); border-color: var(--pink); }
+  .promise-box { width: 24px; height: 24px; border-radius: 7px; border: 2px solid rgba(244,114,182,0.35); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; transition: all 0.3s; background: white; }
   .promise-item.checked .promise-box { background: var(--pink); border-color: var(--pink); color: white; }
-  .promise-text {
-    font-family: 'Playfair Display', serif; font-style: italic;
-    color: #5a2d4a; font-size: 0.93rem;
-  }
+  .promise-text { font-family: 'Playfair Display', serif; font-style: italic; color: #5a2d4a; font-size: 0.93rem; }
   .prom-note { margin-top: 16px; color: rgba(190,24,93,0.5); font-size: 0.78rem; font-style: italic; }
 
   /* ── FINAL ── */
-  #screen-final {
-    background: linear-gradient(160deg, #1a0a2e 0%, #3d0f2e 50%, #1a0a2e);
-    position: relative; overflow: hidden; text-align: center;
-  }
+  #screen-final { background: linear-gradient(160deg, #1a0a2e 0%, #3d0f2e 50%, #1a0a2e); position: relative; overflow: hidden; text-align: center; }
   #final-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .final-inner { position: relative; z-index: 2; width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; gap: 24px; }
 
-  .final-inner {
-    position: relative; z-index: 2; width: 100%; max-width: 600px;
-    display: flex; flex-direction: column; align-items: center; gap: 24px;
-  }
-
-  /* POLAROID */
-  .polaroid {
-    background: white; padding: 18px 18px 46px; border-radius: 3px;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
-    transform: rotate(-1.8deg); max-width: 300px; width: 100%;
-    animation: polaroidIn 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.4s forwards;
-    opacity: 0;
-  }
-  @keyframes polaroidIn {
-    from { opacity: 0; transform: rotate(-1.8deg) scale(0.75) translateY(40px); }
-    to   { opacity: 1; transform: rotate(-1.8deg) scale(1)    translateY(0); }
-  }
-  .polaroid-img {
-    width: 100%; height: 190px; border-radius: 2px;
-    position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #fce7f3, #ede9fe);
-  }
+  .polaroid { background: white; padding: 18px 18px 46px; border-radius: 3px; box-shadow: 0 24px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08); transform: rotate(-1.8deg); max-width: 300px; width: 100%; animation: polaroidIn 0.9s cubic-bezier(0.34,1.56,0.64,1) 0.4s forwards; opacity: 0; }
+  @keyframes polaroidIn { from{opacity:0;transform:rotate(-1.8deg) scale(0.75) translateY(40px)}to{opacity:1;transform:rotate(-1.8deg) scale(1) translateY(0)} }
+  .polaroid-img { width: 100%; height: 190px; border-radius: 2px; position: relative; overflow: hidden; background: linear-gradient(135deg, #fce7f3, #ede9fe); }
   .polaroid-img canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .polaroid-caption {
-    margin-top: 14px; font-family: 'Playfair Display', serif; font-style: italic;
-    color: #3a1a2e; font-size: 0.95rem; text-align: center; line-height: 1.4;
-  }
+  .polaroid-caption { margin-top: 14px; font-family: 'Playfair Display', serif; font-style: italic; color: #3a1a2e; font-size: 0.95rem; text-align: center; line-height: 1.4; }
   .polaroid-date { font-size: 0.72rem; color: #9c5a7a; margin-top: 3px; letter-spacing: 0.8px; }
 
-  .summary-card {
-    background: rgba(255,255,255,0.07); backdrop-filter: blur(20px);
-    border: 1px solid rgba(244,114,182,0.28); border-radius: 28px;
-    padding: 34px 28px; width: 100%;
-    animation: cardIn 0.8s ease 0.25s forwards; opacity: 0;
-  }
-  .title-final {
-    font-family: 'Playfair Display', serif; font-style: italic; color: white;
-    font-size: clamp(1.3rem,4vw,1.9rem); margin-bottom: 5px;
-    text-shadow: 0 0 30px rgba(244,114,182,0.6);
-  }
+  .summary-card { background: rgba(255,255,255,0.07); backdrop-filter: blur(20px); border: 1px solid rgba(244,114,182,0.28); border-radius: 28px; padding: 34px 28px; width: 100%; animation: cardIn 0.8s ease 0.25s forwards; opacity: 0; }
+  .title-final { font-family: 'Playfair Display', serif; font-style: italic; color: white; font-size: clamp(1.3rem,4vw,1.9rem); margin-bottom: 5px; text-shadow: 0 0 30px rgba(244,114,182,0.6); }
   .summary-sub { color: rgba(255,255,255,0.45); font-size: 0.82rem; margin-bottom: 22px; letter-spacing: 1px; }
 
-  .plan-row {
-    display: flex; align-items: center; gap: 13px;
-    background: rgba(255,255,255,0.06); border-radius: 13px;
-    padding: 11px 16px; margin-bottom: 9px;
-    border: 1px solid rgba(244,114,182,0.14); text-align: left;
-    animation: slideRow 0.5s ease forwards; opacity: 0; transform: translateX(-18px);
-  }
+  .plan-row { display: flex; align-items: center; gap: 13px; background: rgba(255,255,255,0.06); border-radius: 13px; padding: 11px 16px; margin-bottom: 9px; border: 1px solid rgba(244,114,182,0.14); text-align: left; animation: slideRow 0.5s ease forwards; opacity: 0; transform: translateX(-18px); }
   .plan-row:nth-child(1){animation-delay:.4s}.plan-row:nth-child(2){animation-delay:.52s}
   .plan-row:nth-child(3){animation-delay:.64s}.plan-row:nth-child(4){animation-delay:.76s}
   .plan-row:nth-child(5){animation-delay:.88s}.plan-row:nth-child(6){animation-delay:1s}
@@ -277,112 +124,49 @@
   .accept-section p { color: rgba(255,255,255,0.72); font-size: 0.97rem; margin-bottom: 16px; font-style: italic; }
   .accept-section em { color: var(--pink); }
 
-  .btn-accept {
-    background: linear-gradient(135deg, #f472b6, #a855f7); color: white; border: none;
-    padding: 15px 42px; border-radius: 50px; font-size: 1rem;
-    font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer;
-    box-shadow: 0 0 40px rgba(244,114,182,0.5); transition: all 0.3s; margin: 5px;
-  }
+  .btn-accept { background: linear-gradient(135deg, #f472b6, #a855f7); color: white; border: none; padding: 15px 42px; border-radius: 50px; font-size: 1rem; font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer; box-shadow: 0 0 40px rgba(244,114,182,0.5); transition: all 0.3s; margin: 5px; }
   .btn-accept:hover { transform: scale(1.06); box-shadow: 0 0 60px rgba(244,114,182,0.7); }
-  .btn-no {
-    background: transparent; color: rgba(255,255,255,0.32);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 11px 26px; border-radius: 50px; font-size: 0.82rem;
-    cursor: pointer; margin: 5px; display: inline-block; transition: all 0.3s;
-  }
+  .btn-no { background: transparent; color: rgba(255,255,255,0.32); border: 1px solid rgba(255,255,255,0.1); padding: 11px 26px; border-radius: 50px; font-size: 0.82rem; cursor: pointer; margin: 5px; display: inline-block; }
 
   /* ── SECRET ── */
-  #screen-secret {
-    background: linear-gradient(160deg, #1a0a2e, #2d1060, #1a0a2e);
-    text-align: center; position: relative; overflow: hidden;
-  }
+  #screen-secret { background: linear-gradient(160deg, #1a0a2e, #2d1060, #1a0a2e); text-align: center; position: relative; overflow: hidden; }
   .secret-stars { position: absolute; inset: 0; pointer-events: none; }
-  .secret-card {
-    background: rgba(255,255,255,0.05); backdrop-filter: blur(24px);
-    border: 1px solid rgba(192,132,252,0.3); border-radius: 28px;
-    padding: 50px 40px; max-width: 500px; width: 100%;
-    position: relative; z-index: 2; animation: cardIn 0.8s ease forwards;
-  }
+  .secret-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(24px); border: 1px solid rgba(192,132,252,0.3); border-radius: 28px; padding: 50px 40px; max-width: 500px; width: 100%; position: relative; z-index: 2; animation: cardIn 0.8s ease forwards; }
   .secret-card .s-emoji { font-size: 2.8rem; margin-bottom: 20px; display: block; }
-  .secret-card h2 {
-    font-family: 'Playfair Display', serif; font-style: italic; color: white;
-    font-size: clamp(1.5rem,4vw,2.2rem); margin-bottom: 14px;
-    text-shadow: 0 0 30px rgba(192,132,252,0.6);
-  }
-  .secret-card p { color: rgba(255,255,255,0.6); font-size: 0.96rem; line-height: 1.75; margin-bottom: 34px; }
-  .btn-secret {
-    background: linear-gradient(135deg, #c084fc, #7c3aed); color: white; border: none;
-    padding: 16px 44px; border-radius: 50px; font-size: 1rem;
-    font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer;
-    box-shadow: 0 0 30px rgba(192,132,252,0.4); transition: all 0.3s;
-  }
+  .secret-card h2 { font-family: 'Playfair Display', serif; font-style: italic; color: white; font-size: clamp(1.5rem,4vw,2.2rem); margin-bottom: 14px; text-shadow: 0 0 30px rgba(192,132,252,0.6); }
+  .secret-card p { color: rgba(255,255,255,0.6); font-size: 0.96rem; line-height: 1.75; margin-bottom: 28px; }
+
+  /* WhatsApp button */
+  .btn-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: white; border: none; padding: 14px 32px; border-radius: 50px; font-size: 0.98rem; font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer; box-shadow: 0 8px 30px rgba(37,211,102,0.35); transition: all 0.3s; margin-bottom: 16px; text-decoration: none; }
+  .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+  .btn-whatsapp svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+  .whatsapp-note { color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-bottom: 20px; }
+
+  .btn-secret { background: linear-gradient(135deg, #c084fc, #7c3aed); color: white; border: none; padding: 14px 40px; border-radius: 50px; font-size: 1rem; font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer; box-shadow: 0 0 30px rgba(192,132,252,0.4); transition: all 0.3s; }
   .btn-secret:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(192,132,252,0.6); }
 
   /* ── NOTA DE AMOR ── */
-  #screen-nota {
-    background: linear-gradient(160deg, #0f0518, #1a0a2e 40%, #0a0d1a);
-    text-align: center; position: relative; overflow: hidden;
-  }
+  #screen-nota { background: linear-gradient(160deg, #0f0518, #1a0a2e 40%, #0a0d1a); text-align: center; position: relative; overflow: hidden; }
   .nota-wrap { position: relative; z-index: 2; max-width: 560px; width: 100%; }
-  .envelope-top {
-    background: linear-gradient(135deg, #be185d, #7c3aed);
-    border-radius: 20px 20px 0 0; padding: 14px; text-align: center;
-    font-size: 1.6rem; letter-spacing: 5px;
-    animation: cardIn 0.6s ease forwards;
-  }
-  .nota-body {
-    background: rgba(255,252,245,0.97); border-radius: 0 0 20px 20px;
-    padding: 44px 38px; position: relative; overflow: hidden;
-    animation: cardIn 0.6s ease 0.1s forwards; opacity: 0;
-  }
-  .nota-body::before {
-    content: '🌷'; position: absolute; font-size: 9rem; opacity: 0.04;
-    bottom: -24px; right: -16px; line-height: 1;
-  }
-  .nota-from {
-    font-size: 0.72rem; color: #be185d; letter-spacing: 2.5px;
-    text-transform: uppercase; margin-bottom: 18px; font-weight: 700;
-  }
-  .nota-body h2 {
-    font-family: 'Playfair Display', serif; font-style: italic; color: #2d0a1f;
-    font-size: clamp(1.15rem,3.5vw,1.7rem); line-height: 1.4; margin-bottom: 18px;
-  }
+  .envelope-top { background: linear-gradient(135deg, #be185d, #7c3aed); border-radius: 20px 20px 0 0; padding: 14px; text-align: center; font-size: 1.6rem; letter-spacing: 5px; animation: cardIn 0.6s ease forwards; }
+  .nota-body { background: rgba(255,252,245,0.97); border-radius: 0 0 20px 20px; padding: 44px 38px; position: relative; overflow: hidden; animation: cardIn 0.6s ease 0.1s forwards; opacity: 0; }
+  .nota-body::before { content: '🌷'; position: absolute; font-size: 9rem; opacity: 0.04; bottom: -24px; right: -16px; line-height: 1; }
+  .nota-from { font-size: 0.72rem; color: #be185d; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 18px; font-weight: 700; }
+  .nota-body h2 { font-family: 'Playfair Display', serif; font-style: italic; color: #2d0a1f; font-size: clamp(1.15rem,3.5vw,1.7rem); line-height: 1.4; margin-bottom: 18px; }
   .nota-body p { color: #5a2d4a; font-size: 0.97rem; line-height: 1.9; margin-bottom: 18px; }
-  .nota-firma {
-    font-family: 'Playfair Display', serif; font-style: italic; color: #be185d;
-    font-size: 1.2rem; text-align: right;
-    border-top: 1px solid rgba(190,24,93,0.14); padding-top: 14px;
-  }
-  .btn-nota {
-    margin-top: 22px;
-    background: linear-gradient(135deg, #be185d, #7c3aed); color: white; border: none;
-    padding: 13px 34px; border-radius: 50px; font-size: 0.95rem;
-    font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer;
-    box-shadow: 0 8px 30px rgba(190,24,93,0.3); transition: all 0.3s;
-  }
+  .nota-firma { font-family: 'Playfair Display', serif; font-style: italic; color: #be185d; font-size: 1.2rem; text-align: right; border-top: 1px solid rgba(190,24,93,0.14); padding-top: 14px; }
+  .btn-nota { margin-top: 22px; background: linear-gradient(135deg, #be185d, #7c3aed); color: white; border: none; padding: 13px 34px; border-radius: 50px; font-size: 0.95rem; font-family: 'Playfair Display', serif; font-style: italic; cursor: pointer; box-shadow: 0 8px 30px rgba(190,24,93,0.3); transition: all 0.3s; }
   .btn-nota:hover { transform: translateY(-3px); }
 
   /* ── YES ── */
-  #screen-yes {
-    background: linear-gradient(160deg, #1a0a2e, #3d0f2e, #1a0a2e);
-    text-align: center; position: relative; overflow: hidden;
-  }
+  #screen-yes { background: linear-gradient(160deg, #1a0a2e, #3d0f2e, #1a0a2e); text-align: center; position: relative; overflow: hidden; }
   #yes-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .yes-content { position: relative; z-index: 2; max-width: 500px; animation: cardIn 0.8s ease forwards; }
   .big-heart { font-size: 5rem; display: block; margin-bottom: 20px; animation: heartbeat 1s infinite; }
-  .yes-content h1 {
-    font-family: 'Playfair Display', serif; font-style: italic; color: white;
-    font-size: clamp(1.8rem,5vw,3rem); text-shadow: 0 0 40px rgba(244,114,182,0.8);
-    line-height: 1.2; margin-bottom: 16px;
-  }
+  .yes-content h1 { font-family: 'Playfair Display', serif; font-style: italic; color: white; font-size: clamp(1.8rem,5vw,3rem); text-shadow: 0 0 40px rgba(244,114,182,0.8); line-height: 1.2; margin-bottom: 16px; }
   .yes-content p { color: rgba(255,255,255,0.7); font-size: 0.98rem; line-height: 1.85; margin-bottom: 10px; }
   .pink-text { color: var(--pink); font-weight: 700; }
-  .yes-closing {
-    margin-top: 28px; background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(244,114,182,0.2); border-radius: 20px;
-    padding: 20px 24px; font-family: 'Playfair Display', serif; font-style: italic;
-    color: rgba(255,255,255,0.88); font-size: 1rem; line-height: 1.75;
-  }
+  .yes-closing { margin-top: 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(244,114,182,0.2); border-radius: 20px; padding: 20px 24px; font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255,255,255,0.88); font-size: 1rem; line-height: 1.75; }
 
   /* ── ANIMATIONS ── */
   @keyframes floatIn  { from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)} }
@@ -411,12 +195,7 @@
   <div class="greeting-card">
     <span class="big-emoji">💌</span>
     <h2>Hola, amor de mi vida</h2>
-    <p>
-      El día de hoy es especial porque <span class="highlight">tú decides</span>.<br><br>
-      Vamos a planear juntos nuestra próxima cita perfecta,
-      paso a paso, tal como a ti te gusta hacerlo todo…
-      con calma y con amor 🌸
-    </p>
+    <p>El día de hoy es especial porque <span class="highlight">tú decides</span>.<br><br>Vamos a planear juntos nuestra próxima cita perfecta, paso a paso, tal como a ti te gusta hacerlo todo… con calma y con amor 🌸</p>
     <button class="btn-primary" onclick="goTo('screen-place')">¡Quiero escoger mi cita! →</button>
   </div>
 </div>
@@ -430,18 +209,9 @@
     <p>Escoge el lugar que más te llame el corazón</p>
   </div>
   <div class="cards-grid">
-    <div class="choice-card" onclick="pick('place','Mirador 🌅',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🌅</span>
-      <h3>Mirador</h3><p>Vista al cielo, tú y yo</p>
-    </div>
-    <div class="choice-card" onclick="pick('place','Rooftop 🌃',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🌃</span>
-      <h3>Rooftop</h3><p>Las luces de la ciudad</p>
-    </div>
-    <div class="choice-card" onclick="pick('place','Restaurante 🍽️',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍽️</span>
-      <h3>Restaurante</h3><p>Cena íntima y elegante</p>
-    </div>
+    <div class="choice-card" onclick="pick('place','Mirador 🌅',this)"><div class="check-badge">✓</div><span class="card-emoji">🌅</span><h3>Mirador</h3><p>Vista al cielo, tú y yo</p></div>
+    <div class="choice-card" onclick="pick('place','Rooftop 🌃',this)"><div class="check-badge">✓</div><span class="card-emoji">🌃</span><h3>Rooftop</h3><p>Las luces de la ciudad</p></div>
+    <div class="choice-card" onclick="pick('place','Restaurante 🍽️',this)"><div class="check-badge">✓</div><span class="card-emoji">🍽️</span><h3>Restaurante</h3><p>Cena íntima y elegante</p></div>
   </div>
   <button class="btn-next" id="btn-place" onclick="goTo('screen-hora')">Siguiente → ¿a qué hora? 🌙</button>
 </div>
@@ -455,18 +225,9 @@
     <p>Escoge el momento del día que más te inspire</p>
   </div>
   <div class="cards-grid">
-    <div class="choice-card" onclick="pick('hora','Tarde dorada 🌇',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🌇</span>
-      <h3>Tarde dorada</h3><p>Cuando la luz te hace ver más bella</p>
-    </div>
-    <div class="choice-card" onclick="pick('hora','Noche estrellada 🌙',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🌙</span>
-      <h3>Noche estrellada</h3><p>Las estrellas y tú, mi universo</p>
-    </div>
-    <div class="choice-card" onclick="pick('hora','Mediodía contigo ☀️',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">☀️</span>
-      <h3>Mediodía contigo</h3><p>El sol y tu sonrisa, igual de brillantes</p>
-    </div>
+    <div class="choice-card" onclick="pick('hora','Tarde dorada 🌇',this)"><div class="check-badge">✓</div><span class="card-emoji">🌇</span><h3>Tarde dorada</h3><p>Cuando la luz te hace ver más bella</p></div>
+    <div class="choice-card" onclick="pick('hora','Noche estrellada 🌙',this)"><div class="check-badge">✓</div><span class="card-emoji">🌙</span><h3>Noche estrellada</h3><p>Las estrellas y tú, mi universo</p></div>
+    <div class="choice-card" onclick="pick('hora','Mediodía contigo ☀️',this)"><div class="check-badge">✓</div><span class="card-emoji">☀️</span><h3>Mediodía contigo</h3><p>El sol y tu sonrisa, igual de brillantes</p></div>
   </div>
   <button class="btn-next" id="btn-hora" onclick="goTo('screen-food')">Siguiente → ¿qué comemos? 🍴</button>
 </div>
@@ -480,22 +241,10 @@
     <p>Porque una cita sin buena comida no existe</p>
   </div>
   <div class="cards-grid" style="grid-template-columns:repeat(auto-fit,minmax(148px,1fr));max-width:780px;">
-    <div class="choice-card" onclick="pick('food','Pasta 🍝',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍝</span>
-      <h3>Pasta</h3><p>Romántica como las películas</p>
-    </div>
-    <div class="choice-card" onclick="pick('food','Hamburguesa 🍔',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍔</span>
-      <h3>Hamburguesa</h3><p>Sin pretensiones, solo rico</p>
-    </div>
-    <div class="choice-card" onclick="pick('food','Nos arriesgamos con sushi 🍣',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍣</span>
-      <h3>Sushi</h3><p>Nos arriesgamos juntos</p>
-    </div>
-    <div class="choice-card" onclick="pick('food','Una comida que nunca hemos probado 🌍',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🌍</span>
-      <h3>Sorpresa</h3><p>Algo que nunca hayamos comido</p>
-    </div>
+    <div class="choice-card" onclick="pick('food','Pasta 🍝',this)"><div class="check-badge">✓</div><span class="card-emoji">🍝</span><h3>Pasta</h3><p>Romántica como las películas</p></div>
+    <div class="choice-card" onclick="pick('food','Hamburguesa 🍔',this)"><div class="check-badge">✓</div><span class="card-emoji">🍔</span><h3>Hamburguesa</h3><p>Sin pretensiones, solo rico</p></div>
+    <div class="choice-card" onclick="pick('food','Nos arriesgamos con sushi 🍣',this)"><div class="check-badge">✓</div><span class="card-emoji">🍣</span><h3>Sushi</h3><p>Nos arriesgamos juntos</p></div>
+    <div class="choice-card" onclick="pick('food','Una comida que nunca hemos probado 🌍',this)"><div class="check-badge">✓</div><span class="card-emoji">🌍</span><h3>Sorpresa</h3><p>Algo que nunca hayamos comido</p></div>
   </div>
   <button class="btn-next" id="btn-food" onclick="goTo('screen-dessert')">Siguiente → el postre 🍬</button>
 </div>
@@ -509,18 +258,9 @@
     <p>Porque la vida contigo ya es dulce, pero esto lo hace más</p>
   </div>
   <div class="cards-grid">
-    <div class="choice-card" onclick="pick('dessert','Galletas 🍪',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍪</span>
-      <h3>Galletas</h3><p>Calientitas y caseras</p>
-    </div>
-    <div class="choice-card" onclick="pick('dessert','McFlurry 🍦',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍦</span>
-      <h3>McFlurry</h3><p>El clásico de siempre</p>
-    </div>
-    <div class="choice-card" onclick="pick('dessert','Helado grande 🍨',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🍨</span>
-      <h3>Helado grande</h3><p>Dos cucharas, un momento</p>
-    </div>
+    <div class="choice-card" onclick="pick('dessert','Galletas 🍪',this)"><div class="check-badge">✓</div><span class="card-emoji">🍪</span><h3>Galletas</h3><p>Calientitas y caseras</p></div>
+    <div class="choice-card" onclick="pick('dessert','McFlurry 🍦',this)"><div class="check-badge">✓</div><span class="card-emoji">🍦</span><h3>McFlurry</h3><p>El clásico de siempre</p></div>
+    <div class="choice-card" onclick="pick('dessert','Helado grande 🍨',this)"><div class="check-badge">✓</div><span class="card-emoji">🍨</span><h3>Helado grande</h3><p>Dos cucharas, un momento</p></div>
   </div>
   <button class="btn-next" id="btn-dessert" onclick="goTo('screen-activity')">Casi terminamos… 💜</button>
 </div>
@@ -534,23 +274,14 @@
     <p>Y ahí, juntitos, ¿qué hacemos?</p>
   </div>
   <div class="cards-grid">
-    <div class="choice-card" onclick="pick('activity','Ver una película 🎬',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🎬</span>
-      <h3>Ver película</h3><p>Tú eliges, yo traigo las cobijas</p>
-    </div>
-    <div class="choice-card" onclick="pick('activity','Ver una serie 📺',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">📺</span>
-      <h3>Ver serie</h3><p>Un capítulo… o cuatro</p>
-    </div>
-    <div class="choice-card" onclick="pick('activity','Jugar un juego 🎮',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🎮</span>
-      <h3>Jugar un juego</h3><p>No te voy a dejar ganar</p>
-    </div>
+    <div class="choice-card" onclick="pick('activity','Ver una película 🎬',this)"><div class="check-badge">✓</div><span class="card-emoji">🎬</span><h3>Ver película</h3><p>Tú eliges, yo traigo las cobijas</p></div>
+    <div class="choice-card" onclick="pick('activity','Ver una serie 📺',this)"><div class="check-badge">✓</div><span class="card-emoji">📺</span><h3>Ver serie</h3><p>Un capítulo… o cuatro</p></div>
+    <div class="choice-card" onclick="pick('activity','Jugar un juego 🎮',this)"><div class="check-badge">✓</div><span class="card-emoji">🎮</span><h3>Jugar un juego</h3><p>No te voy a dejar ganar</p></div>
   </div>
   <button class="btn-next" id="btn-activity" onclick="goTo('screen-reto')">Un detalle más… 🎯</button>
 </div>
 
-<!-- ── RETO DEL DÍA ── -->
+<!-- ── RETO ── -->
 <div id="screen-reto" class="screen">
   <div class="choice-header">
     <div class="step-label">✦ Reto especial de la cita ✦</div>
@@ -558,18 +289,9 @@
     <p>Escoge algo único que hagamos juntos en nuestra cita</p>
   </div>
   <div class="cards-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:780px;">
-    <div class="choice-card" onclick="pick('reto','Decirnos 3 cosas que amamos del otro 💬',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">💬</span>
-      <h3>Las 3 cosas</h3><p>Decirnos 3 cosas que amamos del otro</p>
-    </div>
-    <div class="choice-card" onclick="pick('reto','Tomarnos una foto tonta juntos 🤪',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">🤪</span>
-      <h3>Foto tonta</h3><p>La más ridícula y auténtica posible</p>
-    </div>
-    <div class="choice-card" onclick="pick('reto','Escribir un deseo juntos en un papel 📝',this)">
-      <div class="check-badge">✓</div><span class="card-emoji">📝</span>
-      <h3>Un deseo en papel</h3><p>Nuestro próximo sueño, escrito y guardado</p>
-    </div>
+    <div class="choice-card" onclick="pick('reto','Decirnos 3 cosas que amamos del otro 💬',this)"><div class="check-badge">✓</div><span class="card-emoji">💬</span><h3>Las 3 cosas</h3><p>Decirnos 3 cosas que amamos del otro</p></div>
+    <div class="choice-card" onclick="pick('reto','Tomarnos una foto tonta juntos 🤪',this)"><div class="check-badge">✓</div><span class="card-emoji">🤪</span><h3>Foto tonta</h3><p>La más ridícula y auténtica posible</p></div>
+    <div class="choice-card" onclick="pick('reto','Escribir un deseo juntos en un papel 📝',this)"><div class="check-badge">✓</div><span class="card-emoji">📝</span><h3>Un deseo en papel</h3><p>Nuestro próximo sueño, escrito y guardado</p></div>
   </div>
   <button class="btn-next" id="btn-reto" onclick="goTo('screen-promesas')">Ahora las promesas 🤝</button>
 </div>
@@ -580,28 +302,11 @@
     <span class="prom-icon">🤝</span>
     <h2>Una promesa para esa noche</h2>
     <p class="sub">Marca las que te comprometes a cumplir, amor</p>
-
-    <div class="promise-item" onclick="togglePromise(this)">
-      <div class="promise-box"></div>
-      <span class="promise-text">"Prometo no mirar el celular ni una sola vez"</span>
-    </div>
-    <div class="promise-item" onclick="togglePromise(this)">
-      <div class="promise-box"></div>
-      <span class="promise-text">"Prometo robar al menos tres besos"</span>
-    </div>
-    <div class="promise-item" onclick="togglePromise(this)">
-      <div class="promise-box"></div>
-      <span class="promise-text">"Prometo reírme de sus chistes aunque no sean graciosos"</span>
-    </div>
-    <div class="promise-item" onclick="togglePromise(this)">
-      <div class="promise-box"></div>
-      <span class="promise-text">"Prometo decirle lo mucho que lo quiero, al menos una vez"</span>
-    </div>
-    <div class="promise-item" onclick="togglePromise(this)">
-      <div class="promise-box"></div>
-      <span class="promise-text">"Prometo disfrutar cada segundo a su lado sin prisa"</span>
-    </div>
-
+    <div class="promise-item" onclick="togglePromise(this)"><div class="promise-box"></div><span class="promise-text">"Prometo no mirar el celular ni una sola vez"</span></div>
+    <div class="promise-item" onclick="togglePromise(this)"><div class="promise-box"></div><span class="promise-text">"Prometo robar al menos tres besos"</span></div>
+    <div class="promise-item" onclick="togglePromise(this)"><div class="promise-box"></div><span class="promise-text">"Prometo reírme de sus chistes aunque no sean graciosos"</span></div>
+    <div class="promise-item" onclick="togglePromise(this)"><div class="promise-box"></div><span class="promise-text">"Prometo decirle lo mucho que lo quiero, al menos una vez"</span></div>
+    <div class="promise-item" onclick="togglePromise(this)"><div class="promise-box"></div><span class="promise-text">"Prometo disfrutar cada segundo a su lado sin prisa"</span></div>
     <p class="prom-note">✦ no hay mínimo requerido, pero el corazón sabe ✦</p>
     <button class="btn-next visible" style="margin-top:22px;" onclick="goTo('screen-final')">Ver nuestra cita soñada 🌹</button>
   </div>
@@ -611,15 +316,11 @@
 <div id="screen-final" class="screen">
   <canvas id="final-canvas"></canvas>
   <div class="final-inner">
-
     <div class="polaroid">
-      <div class="polaroid-img" id="polaroid-img">
-        <canvas id="polaroid-canvas"></canvas>
-      </div>
+      <div class="polaroid-img" id="polaroid-img"><canvas id="polaroid-canvas"></canvas></div>
       <div class="polaroid-caption" id="polaroid-caption">Nuestra cita perfecta ✨</div>
       <div class="polaroid-date" id="polaroid-date"></div>
     </div>
-
     <div class="summary-card">
       <div class="title-final">Tu plan de cita, amor</div>
       <div class="summary-sub">✦ diseñado por ti ✦</div>
@@ -632,7 +333,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -642,12 +342,18 @@
   <div class="secret-card">
     <span class="s-emoji">💌 ✨</span>
     <h2>¿Quieres saber algo más?</h2>
-    <p>
-      Hay algo que llevo guardado en el corazón<br>
-      y hoy quiero que lo leas…<br>
-      algo que siempre debí decirte más seguido.
-    </p>
-    <button class="btn-secret" onclick="goTo('screen-nota')">Sí, quiero saber 💜</button>
+    <p>Hay algo que llevo guardado en el corazón y hoy quiero que lo leas…</p>
+
+    <!-- BOTÓN WHATSAPP -->
+    <div style="margin-bottom:8px;">
+      <a class="btn-whatsapp" id="btn-whatsapp" href="#" onclick="sendWhatsApp(); return false;">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar mi plan a mi amor 💌
+      </a>
+    </div>
+    <p class="whatsapp-note">él recibirá todas tus elecciones 🌷</p>
+
+    <button class="btn-secret" onclick="goTo('screen-nota')">Sí, quiero saber más 💜</button>
   </div>
 </div>
 
@@ -658,18 +364,8 @@
     <div class="nota-body">
       <div class="nota-from">Para ti, con todo mi amor</div>
       <h2>Nunca olvidaré lo pequeño de los detalles</h2>
-      <p>
-        De cuánto amo enamorarte, cuidarte y amarte día a día
-        para que te sientas la mujer más amada del mundo.
-        Cada gesto, cada mirada, cada momento contigo
-        es un regalo que no me canso de recibir.
-      </p>
-      <p>
-        Gracias por elegirme, por quedarte, por reírte conmigo.
-        Esta cita no es solo un plan… es otra manera de decirte
-        que quiero seguir inventando momentos hermosos a tu lado,
-        hoy, mañana y siempre 🌷
-      </p>
+      <p>De cuánto amo enamorarte, cuidarte y amarte día a día para que te sientas la mujer más amada del mundo. Cada gesto, cada mirada, cada momento contigo es un regalo que no me canso de recibir.</p>
+      <p>Gracias por elegirme, por quedarte, por reírte conmigo. Esta cita no es solo un plan… es otra manera de decirte que quiero seguir inventando momentos hermosos a tu lado, hoy, mañana y siempre 🌷</p>
       <div class="nota-firma">Con todo mi corazón, tuyo ❤️</div>
     </div>
     <button class="btn-nota" onclick="goTo('screen-yes')">Continuar 🌷</button>
@@ -682,46 +378,58 @@
   <div class="yes-content">
     <span class="big-heart">💗</span>
     <h1>¡Sabía que dirías que sí!</h1>
-    <p>
-      Porque tú y yo, amor,<br>
-      somos <span class="pink-text">cada cita que inventamos</span>,<br>
-      cada momento que creamos juntos,<br>
-      y cada nueva razón para elegirse.
-    </p>
-    <div class="yes-closing">
-      🌷 Y mientras haya tulipanes que florezcan,<br>
-      habrá un corazón que late solo por ti.<br>
-      <em>Te amo, infinitamente.</em> 🌷
-    </div>
+    <p>Porque tú y yo, amor,<br>somos <span class="pink-text">cada cita que inventamos</span>,<br>cada momento que creamos juntos,<br>y cada nueva razón para elegirse.</p>
+    <div class="yes-closing">🌷 Y mientras haya tulipanes que florezcan,<br>habrá un corazón que late solo por ti.<br><em>Te amo, infinitamente.</em> 🌷</div>
   </div>
 </div>
 
 <script>
-// ── STATE ──
 const C = { place:'', hora:'', food:'', dessert:'', activity:'', reto:'' };
 const STEPS = ['place','hora','food','dessert','activity'];
 const TOTAL = 5;
+const WA_NUMBER = '573236596107';
 
 // ── NAVIGATION ──
 function goTo(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   const el = document.getElementById(id);
   el.classList.add('active');
-  el.style.cssText += 'opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;';
-  el.offsetHeight;
-  el.style.opacity = 1; el.style.transform = 'translateY(0)';
+  el.style.opacity = '0'; el.style.transform = 'translateY(22px)';
+  el.style.transition = 'opacity .55s ease,transform .55s ease';
+  requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
   if (id === 'screen-final')  { buildSummary(); buildPolaroid(); initFinalCanvas(); }
   if (id === 'screen-yes')    { initYesCanvas(); }
   if (id === 'screen-secret') { buildSecretStars(); }
 }
 
+// ── WHATSAPP ──
+function sendWhatsApp() {
+  const promesas = [...document.querySelectorAll('.promise-item.checked')]
+    .map(el => '  ✓ ' + el.querySelector('.promise-text').textContent).join('\n') || '  (ninguna marcada aún)';
+  const msg =
+`🌷 *Mi plan de cita soñada* 🌷
+
+🌙 La hora: ${C.hora || '—'}
+📍 El lugar: ${C.place || '—'}
+🍴 La cena: ${C.food || '—'}
+🍬 El postre: ${C.dessert || '—'}
+🏠 En casa: ${C.activity || '—'}
+🎯 El reto: ${C.reto || '—'}
+
+🤝 *Mis promesas:*
+${promesas}
+
+💕 ¡Acepto esta cita contigo! 🌷`;
+  const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+}
+
 // ── TULIPS ──
 const tC = document.getElementById('tulip-canvas');
 const tX = tC.getContext('2d');
-let tulips = [], animId;
+let animId;
 function szC(c){ c.width=innerWidth; c.height=innerHeight; }
-szC(tC);
-addEventListener('resize', ()=>szC(tC));
+szC(tC); addEventListener('resize',()=>szC(tC));
 
 class Tulip {
   constructor(){ this.reset(); }
@@ -734,29 +442,20 @@ class Tulip {
     this.wobble=Math.random()*Math.PI*2; this.ws=.022+Math.random()*.03;
     this.rot=(Math.random()-.5)*.4; this.ls=Math.random()>.5?1:-1;
   }
-  update(){
-    this.x+=this.vx+Math.sin(this.wobble)*.4; this.y+=this.vy;
-    this.wobble+=this.ws; if(this.y<-80)this.reset();
-    this.alpha=Math.min(1,this.alpha+.02);
-  }
+  update(){ this.x+=this.vx+Math.sin(this.wobble)*.4; this.y+=this.vy; this.wobble+=this.ws; if(this.y<-80)this.reset(); this.alpha=Math.min(1,this.alpha+.02); }
   draw(){
-    tX.save(); tX.globalAlpha=this.alpha;
-    tX.translate(this.x,this.y); tX.rotate(this.rot+Math.sin(this.wobble)*.08);
+    tX.save(); tX.globalAlpha=this.alpha; tX.translate(this.x,this.y); tX.rotate(this.rot+Math.sin(this.wobble)*.08);
     const s=this.size;
     tX.strokeStyle=this.stem; tX.lineWidth=s*.1; tX.lineCap='round';
     tX.beginPath(); tX.moveTo(0,0); tX.lineTo(0,s*.6); tX.stroke();
-    tX.fillStyle=this.stem; tX.save();
-    tX.translate(this.ls*s*.08,s*.3); tX.rotate(this.ls*.5);
+    tX.fillStyle=this.stem; tX.save(); tX.translate(this.ls*s*.08,s*.3); tX.rotate(this.ls*.5);
     tX.beginPath(); tX.ellipse(0,0,s*.18,s*.07,0,0,Math.PI*2); tX.fill(); tX.restore();
     tX.fillStyle=this.color;
-    for(let i=0;i<5;i++){
-      tX.save(); tX.rotate(i/5*Math.PI*2);
-      tX.beginPath(); tX.ellipse(0,-s*.25,s*.13,s*.26,0,0,Math.PI*2); tX.fill(); tX.restore();
-    }
-    tX.fillStyle='#fbbf24'; tX.beginPath(); tX.arc(0,-s*.18,s*.1,0,Math.PI*2); tX.fill();
-    tX.restore();
+    for(let i=0;i<5;i++){ tX.save(); tX.rotate(i/5*Math.PI*2); tX.beginPath(); tX.ellipse(0,-s*.25,s*.13,s*.26,0,0,Math.PI*2); tX.fill(); tX.restore(); }
+    tX.fillStyle='#fbbf24'; tX.beginPath(); tX.arc(0,-s*.18,s*.1,0,Math.PI*2); tX.fill(); tX.restore();
   }
 }
+const tulips = [];
 for(let i=0;i<35;i++){ const t=new Tulip(); t.y=Math.random()*tC.height; t.alpha=Math.random()*.6; tulips.push(t); }
 animId=requestAnimationFrame(function loop(){ tX.clearRect(0,0,tC.width,tC.height); tulips.forEach(t=>{t.update();t.draw();}); animId=requestAnimationFrame(loop); });
 
@@ -772,8 +471,7 @@ function createHearts(){
   const c=document.getElementById('hearts-container');
   '💕🌷💗✨🌸💖🌺'.split('').forEach(e=>{
     for(let j=0;j<3;j++){
-      const h=document.createElement('div');
-      h.className='floating-heart'; h.textContent=e;
+      const h=document.createElement('div'); h.className='floating-heart'; h.textContent=e;
       h.style.cssText=`left:${Math.random()*100}vw;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*6}s;font-size:${1+Math.random()*1.5}rem`;
       c.appendChild(h);
     }
@@ -782,14 +480,9 @@ function createHearts(){
 
 // ── DOTS ──
 function renderDots(key){
-  const idx=STEPS.indexOf(key);
-  const el=document.getElementById('dots-'+key);
+  const idx=STEPS.indexOf(key), el=document.getElementById('dots-'+key);
   if(!el)return; el.innerHTML='';
-  for(let i=0;i<TOTAL;i++){
-    const d=document.createElement('div');
-    d.className='step-dot'+(i<idx?' done':i===idx?' active':'');
-    el.appendChild(d);
-  }
+  for(let i=0;i<TOTAL;i++){ const d=document.createElement('div'); d.className='step-dot'+(i<idx?' done':i===idx?' active':''); el.appendChild(d); }
 }
 STEPS.forEach(k=>renderDots(k));
 
@@ -799,8 +492,7 @@ function pick(type,value,card){
   card.closest('.cards-grid').querySelectorAll('.choice-card').forEach(c=>c.classList.remove('selected'));
   card.classList.add('selected');
   const m={place:'btn-place',hora:'btn-hora',food:'btn-food',dessert:'btn-dessert',activity:'btn-activity',reto:'btn-reto'};
-  const b=document.getElementById(m[type]);
-  if(b) b.classList.add('visible');
+  const b=document.getElementById(m[type]); if(b) b.classList.add('visible');
 }
 
 // ── PROMISES ──
@@ -811,173 +503,61 @@ function togglePromise(item){
 
 // ── RUN AWAY ──
 function runAway(btn){
-  const vw=innerWidth-140, vh=innerHeight-60;
-  Object.assign(btn.style,{
-    position:'fixed', left:Math.random()*vw+'px', top:Math.random()*vh+'px',
-    transition:'all .4s cubic-bezier(.34,1.56,.64,1)', zIndex:'999',
-    background:'transparent', color:'rgba(255,255,255,.3)',
-    border:'1px solid rgba(255,255,255,.1)', padding:'11px 26px',
-    borderRadius:'50px', fontSize:'.82rem', cursor:'pointer'
-  });
+  Object.assign(btn.style,{position:'fixed',left:Math.random()*(innerWidth-140)+'px',top:Math.random()*(innerHeight-60)+'px',transition:'all .4s cubic-bezier(.34,1.56,.64,1)',zIndex:'999',background:'transparent',color:'rgba(255,255,255,.3)',border:'1px solid rgba(255,255,255,.1)',padding:'11px 26px',borderRadius:'50px',fontSize:'.82rem',cursor:'pointer'});
 }
 
 // ── SUMMARY ──
 function buildSummary(){
-  const rows=[
-    {emoji:'🌙',label:'La hora',value:C.hora},
-    {emoji:'📍',label:'El lugar',value:C.place},
-    {emoji:'🍴',label:'La cena',value:C.food},
-    {emoji:'🍬',label:'El postre',value:C.dessert},
-    {emoji:'🏠',label:'En casa',value:C.activity},
-    {emoji:'🎯',label:'El reto',value:C.reto},
-  ];
-  const cont=document.getElementById('plan-rows');
-  cont.innerHTML='';
-  rows.forEach(r=>{
-    const d=document.createElement('div');
-    d.className='plan-row';
-    d.innerHTML=`<span class="row-emoji">${r.emoji}</span><div><div class="row-label">${r.label}</div><div class="row-value">${r.value||'—'}</div></div>`;
-    cont.appendChild(d);
-  });
+  const rows=[{emoji:'🌙',label:'La hora',value:C.hora},{emoji:'📍',label:'El lugar',value:C.place},{emoji:'🍴',label:'La cena',value:C.food},{emoji:'🍬',label:'El postre',value:C.dessert},{emoji:'🏠',label:'En casa',value:C.activity},{emoji:'🎯',label:'El reto',value:C.reto}];
+  const cont=document.getElementById('plan-rows'); cont.innerHTML='';
+  rows.forEach(r=>{ const d=document.createElement('div'); d.className='plan-row'; d.innerHTML=`<span class="row-emoji">${r.emoji}</span><div><div class="row-label">${r.label}</div><div class="row-value">${r.value||'—'}</div></div>`; cont.appendChild(d); });
 }
 
 // ── POLAROID ──
 function buildPolaroid(){
-  const box=document.getElementById('polaroid-img');
-  const canvas=document.getElementById('polaroid-canvas');
+  const box=document.getElementById('polaroid-img'), canvas=document.getElementById('polaroid-canvas');
   canvas.width=box.offsetWidth||280; canvas.height=box.offsetHeight||190;
   const ctx=canvas.getContext('2d');
   const gr=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
   gr.addColorStop(0,'#fce7f3'); gr.addColorStop(.5,'#ede9fe'); gr.addColorStop(1,'#fef3c7');
-
-  class PTulip{
-    constructor(){ this.reset(); this.y=Math.random()*canvas.height; this.a=Math.random()*.5+.25; }
-    reset(){ this.x=Math.random()*canvas.width; this.y=canvas.height+15;
-      this.vy=-(0.35+Math.random()*.7); this.vx=(Math.random()-.5)*.35;
-      this.sz=6+Math.random()*11; this.wobble=Math.random()*Math.PI*2;
-      this.color=['#f472b6','#c084fc','#fb7185','#fbbf24','#e879f9'][~~(Math.random()*5)];
-    }
-    update(){ this.x+=this.vx+Math.sin(this.wobble)*.18; this.y+=this.vy; this.wobble+=.04; if(this.y<-12)this.reset(); }
-    draw(){
-      ctx.save(); ctx.globalAlpha=this.a*.65; ctx.fillStyle=this.color;
-      for(let i=0;i<5;i++){
-        ctx.save(); ctx.translate(this.x,this.y); ctx.rotate(i/5*Math.PI*2);
-        ctx.beginPath(); ctx.ellipse(0,-this.sz*.24,this.sz*.11,this.sz*.22,0,0,Math.PI*2); ctx.fill();
-        ctx.restore();
-      }
-      ctx.fillStyle='#fbbf24'; ctx.beginPath(); ctx.arc(this.x,this.y-this.sz*.15,this.sz*.09,0,Math.PI*2); ctx.fill();
-      ctx.restore();
-    }
-  }
-  const pt=Array.from({length:14},()=>new PTulip());
-
-  function drawHeart(x,y,s){
-    ctx.save(); ctx.fillStyle='#f472b6'; ctx.globalAlpha=.45;
-    ctx.beginPath(); ctx.moveTo(x,y+s*.35);
-    ctx.bezierCurveTo(x,y,x-s*.5,y,x-s*.5,y+s*.35);
-    ctx.bezierCurveTo(x-s*.5,y+s*.7,x,y+s,x,y+s);
-    ctx.bezierCurveTo(x,y+s,x+s*.5,y+s*.7,x+s*.5,y+s*.35);
-    ctx.bezierCurveTo(x+s*.5,y,x,y,x,y+s*.35);
-    ctx.fill(); ctx.restore();
-  }
-
+  class PT{ constructor(){this.reset();this.y=Math.random()*canvas.height;this.a=Math.random()*.5+.25;} reset(){this.x=Math.random()*canvas.width;this.y=canvas.height+15;this.vy=-(0.35+Math.random()*.7);this.vx=(Math.random()-.5)*.35;this.sz=6+Math.random()*11;this.wobble=Math.random()*Math.PI*2;this.color=['#f472b6','#c084fc','#fb7185','#fbbf24','#e879f9'][~~(Math.random()*5)];} update(){this.x+=this.vx+Math.sin(this.wobble)*.18;this.y+=this.vy;this.wobble+=.04;if(this.y<-12)this.reset();} draw(){ctx.save();ctx.globalAlpha=this.a*.65;ctx.fillStyle=this.color;for(let i=0;i<5;i++){ctx.save();ctx.translate(this.x,this.y);ctx.rotate(i/5*Math.PI*2);ctx.beginPath();ctx.ellipse(0,-this.sz*.24,this.sz*.11,this.sz*.22,0,0,Math.PI*2);ctx.fill();ctx.restore();}ctx.fillStyle='#fbbf24';ctx.beginPath();ctx.arc(this.x,this.y-this.sz*.15,this.sz*.09,0,Math.PI*2);ctx.fill();ctx.restore();} }
+  const pt=Array.from({length:14},()=>new PT());
+  function dH(x,y,s){ctx.save();ctx.fillStyle='#f472b6';ctx.globalAlpha=.42;ctx.beginPath();ctx.moveTo(x,y+s*.35);ctx.bezierCurveTo(x,y,x-s*.5,y,x-s*.5,y+s*.35);ctx.bezierCurveTo(x-s*.5,y+s*.7,x,y+s,x,y+s);ctx.bezierCurveTo(x,y+s,x+s*.5,y+s*.7,x+s*.5,y+s*.35);ctx.bezierCurveTo(x+s*.5,y,x,y,x,y+s*.35);ctx.fill();ctx.restore();}
   (function loop(){
     if(!document.getElementById('screen-final').classList.contains('active'))return;
-    ctx.fillStyle=gr; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle=gr;ctx.fillRect(0,0,canvas.width,canvas.height);
     pt.forEach(t=>{t.update();t.draw();});
-    const hs=28,cx=canvas.width/2-hs/2,cy=canvas.height/2-hs*.65;
-    drawHeart(cx,cy,hs);
-    ctx.save(); ctx.globalAlpha=1; ctx.fillStyle='#9d174d';
-    ctx.font=`italic bold ${canvas.height*.088}px 'Playfair Display',serif`;
-    ctx.textAlign='center';
-    ctx.fillText('💕 Nuestra cita 💕',canvas.width/2,canvas.height*.9);
-    ctx.restore();
+    dH(canvas.width/2-14,canvas.height/2-18,28);
+    ctx.save();ctx.globalAlpha=1;ctx.fillStyle='#9d174d';ctx.font=`italic bold ${canvas.height*.088}px 'Playfair Display',serif`;ctx.textAlign='center';ctx.fillText('💕 Nuestra cita 💕',canvas.width/2,canvas.height*.9);ctx.restore();
     requestAnimationFrame(loop);
   })();
-
   const h=C.hora?C.hora.split(' ')[0]:'';
   document.getElementById('polaroid-caption').textContent=h?`${h} perfecta ✨`:'Nuestra cita perfecta ✨';
-  const now=new Date();
-  document.getElementById('polaroid-date').textContent=now.toLocaleDateString('es-CO',{year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('polaroid-date').textContent=new Date().toLocaleDateString('es-CO',{year:'numeric',month:'long',day:'numeric'});
 }
 
-// ── FINAL CANVAS (stars + petals) ──
+// ── FINAL CANVAS ──
 function initFinalCanvas(){
-  const canvas=document.getElementById('final-canvas');
-  canvas.width=innerWidth; canvas.height=innerHeight;
+  const canvas=document.getElementById('final-canvas'); canvas.width=innerWidth; canvas.height=innerHeight;
   const ctx=canvas.getContext('2d');
   const stars=Array.from({length:80},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.3,a:Math.random(),s:.002+Math.random()*.004}));
-  class Petal{
-    constructor(){this.reset();this.y=Math.random()*canvas.height;}
-    reset(){this.x=Math.random()*canvas.width;this.y=-20;this.vy=.4+Math.random()*1.1;this.vx=(Math.random()-.5)*.6;this.sz=3+Math.random()*7;this.alpha=.3+Math.random()*.5;this.color=['#f472b6','#fb7185','#c084fc','#e879f9','#fbbf24'][~~(Math.random()*5)];this.w=Math.random()*Math.PI*2;}
-    update(){this.y+=this.vy;this.x+=this.vx+Math.sin(this.w)*.32;this.w+=.03;if(this.y>canvas.height+20)this.reset();}
-    draw(){ctx.save();ctx.globalAlpha=this.alpha;ctx.fillStyle=this.color;ctx.beginPath();ctx.ellipse(this.x,this.y,this.sz,this.sz*.5,this.w,0,Math.PI*2);ctx.fill();ctx.restore();}
-  }
+  class Petal{constructor(){this.reset();this.y=Math.random()*canvas.height;}reset(){this.x=Math.random()*canvas.width;this.y=-20;this.vy=.4+Math.random()*1.1;this.vx=(Math.random()-.5)*.6;this.sz=3+Math.random()*7;this.alpha=.3+Math.random()*.5;this.color=['#f472b6','#fb7185','#c084fc','#e879f9','#fbbf24'][~~(Math.random()*5)];this.w=Math.random()*Math.PI*2;}update(){this.y+=this.vy;this.x+=this.vx+Math.sin(this.w)*.32;this.w+=.03;if(this.y>canvas.height+20)this.reset();}draw(){ctx.save();ctx.globalAlpha=this.alpha;ctx.fillStyle=this.color;ctx.beginPath();ctx.ellipse(this.x,this.y,this.sz,this.sz*.5,this.w,0,Math.PI*2);ctx.fill();ctx.restore();}}
   const petals=Array.from({length:32},()=>new Petal());
-  (function loop(){
-    if(!document.getElementById('screen-final').classList.contains('active'))return;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${s.a+.28*Math.sin(Date.now()*s.s)})`;ctx.fill();});
-    petals.forEach(p=>{p.update();p.draw();});
-    requestAnimationFrame(loop);
-  })();
+  (function loop(){if(!document.getElementById('screen-final').classList.contains('active'))return;ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${s.a+.28*Math.sin(Date.now()*s.s)})`;ctx.fill();});petals.forEach(p=>{p.update();p.draw();});requestAnimationFrame(loop);})();
 }
 
 // ── SECRET STARS ──
 function buildSecretStars(){
-  const cont=document.getElementById('secret-stars-container');
-  cont.innerHTML='';
-  for(let i=0;i<60;i++){
-    const s=document.createElement('div');
-    const sz=1+Math.random()*2;
-    Object.assign(s.style,{
-      position:'absolute',borderRadius:'50%',
-      background:'white',opacity:Math.random()*.7+.2,
-      width:sz+'px',height:sz+'px',
-      left:Math.random()*100+'%',top:Math.random()*100+'%',
-      animation:`blink ${2+Math.random()*3}s ${Math.random()*3}s infinite`
-    });
-    cont.appendChild(s);
-  }
+  const cont=document.getElementById('secret-stars-container'); cont.innerHTML='';
+  for(let i=0;i<60;i++){const s=document.createElement('div');const sz=1+Math.random()*2;Object.assign(s.style,{position:'absolute',borderRadius:'50%',background:'white',opacity:Math.random()*.7+.2,width:sz+'px',height:sz+'px',left:Math.random()*100+'%',top:Math.random()*100+'%',animation:`blink ${2+Math.random()*3}s ${Math.random()*3}s infinite`});cont.appendChild(s);}
 }
 
-// ── YES CANVAS (fireworks) ──
+// ── YES CANVAS ──
 function initYesCanvas(){
-  const canvas=document.getElementById('yes-canvas');
-  canvas.width=innerWidth; canvas.height=innerHeight;
-  const ctx=canvas.getContext('2d');
-  let particles=[],lastBurst=0;
-  class P{
-    constructor(x,y){
-      const a=Math.random()*Math.PI*2,sp=2+Math.random()*6.5;
-      this.x=x;this.y=y;this.vx=Math.cos(a)*sp;this.vy=Math.sin(a)*sp;
-      this.alpha=1;this.size=2+Math.random()*5;
-      this.color=['#f472b6','#fb7185','#c084fc','#fbbf24','#e879f9','#fff'][~~(Math.random()*6)];
-      const ch=['💕','🌷','✨','💗','🌸'];
-      this.isChar=Math.random()>.72;this.char=ch[~~(Math.random()*ch.length)];
-    }
-    update(){this.vx*=.97;this.vy*=.97;this.vy+=.1;this.x+=this.vx;this.y+=this.vy;this.alpha-=.013;}
-    draw(){
-      if(this.alpha<=0)return;
-      ctx.save();ctx.globalAlpha=this.alpha;
-      if(this.isChar){ctx.font=this.size*2.5+'px serif';ctx.fillText(this.char,this.x,this.y);}
-      else{ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}
-      ctx.restore();
-    }
-  }
-  (function loop(){
-    if(!document.getElementById('screen-yes').classList.contains('active'))return;
-    ctx.fillStyle='rgba(26,10,46,.14)';ctx.fillRect(0,0,canvas.width,canvas.height);
-    const now=Date.now();
-    if(now-lastBurst>520){
-      const x=80+Math.random()*(canvas.width-160),y=50+Math.random()*(canvas.height*.55);
-      for(let i=0;i<48;i++)particles.push(new P(x,y));
-      lastBurst=now;
-    }
-    particles=particles.filter(p=>p.alpha>0);
-    particles.forEach(p=>{p.update();p.draw();});
-    requestAnimationFrame(loop);
-  })();
+  const canvas=document.getElementById('yes-canvas'); canvas.width=innerWidth; canvas.height=innerHeight;
+  const ctx=canvas.getContext('2d'); let particles=[],lastBurst=0;
+  class P{constructor(x,y){const a=Math.random()*Math.PI*2,sp=2+Math.random()*6.5;this.x=x;this.y=y;this.vx=Math.cos(a)*sp;this.vy=Math.sin(a)*sp;this.alpha=1;this.size=2+Math.random()*5;this.color=['#f472b6','#fb7185','#c084fc','#fbbf24','#e879f9','#fff'][~~(Math.random()*6)];const ch=['💕','🌷','✨','💗','🌸'];this.isChar=Math.random()>.72;this.char=ch[~~(Math.random()*ch.length)];}update(){this.vx*=.97;this.vy*=.97;this.vy+=.1;this.x+=this.vx;this.y+=this.vy;this.alpha-=.013;}draw(){if(this.alpha<=0)return;ctx.save();ctx.globalAlpha=this.alpha;if(this.isChar){ctx.font=this.size*2.5+'px serif';ctx.fillText(this.char,this.x,this.y);}else{ctx.fillStyle=this.color;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}ctx.restore();}}
+  (function loop(){if(!document.getElementById('screen-yes').classList.contains('active'))return;ctx.fillStyle='rgba(26,10,46,.14)';ctx.fillRect(0,0,canvas.width,canvas.height);const now=Date.now();if(now-lastBurst>520){const x=80+Math.random()*(canvas.width-160),y=50+Math.random()*(canvas.height*.55);for(let i=0;i<48;i++)particles.push(new P(x,y));lastBurst=now;}particles=particles.filter(p=>p.alpha>0);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(loop);})();
 }
 </script>
 </body>
